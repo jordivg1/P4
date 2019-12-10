@@ -1,4 +1,4 @@
-PAV - P4: reconocimiento y verificación del locutor
+﻿PAV - P4: reconocimiento y verificación del locutor
 ===================================================
 
 Obtenga su copia del repositorio de la práctica accediendo a [Práctica 4](https://github.com/albino-pav/P4)
@@ -25,8 +25,8 @@ ejercicios indicados.
 
 ### Extracción de características.
 
-- Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
-  (LPCC), en su fichero <code>scripts/wav2lpcc.sh</code>:
+- *Pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
+  (LPCC), en nuestro fichero <code>scripts/wav2lpcc.sh</code>:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
 # A modo de ejemplo de cómo incorporar código fuente a un fichero markdown, el pipeline siguiente
@@ -35,10 +35,22 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 400 -p 80 | $WINDOW -l 400 -L 400
         $LPC -l 400 -m $lpc_order > $base.lp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
-  su fichero <code>scripts/wav2mfcc.sh</code>:
+- *Pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
+  nuestro fichero <code>scripts/wav2mfcc.sh</code>:
 
-- Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | 
+$MFCC -l 200 -m $mfcc_order -s 8000 -n $ncoef > $base.mfcc
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Parámetros adecuados para el cálculo de los coeficientes LPCC y MFCC.
+  
+  - LPCC
+	- Orden
+	- Número de coeficientes
+  - MFCC
+	- Orden
+	- Número de coeficientes
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
