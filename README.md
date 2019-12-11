@@ -71,15 +71,15 @@ En este caso usamos un orden de mfcc de 13 (el que se usa de forma habitual) y 1
   
   Parametrización LP
   
-  <img src="img/lpcoef.png" width="640" align="center">
+  <img src="img/lpcoef.png.PNG" width="640" align="center">
   
   Parametrización MFCC
   
-  <img src="img/mfcccoef.png" width="640" align="center">
+  <img src="img/mfcccoef.png.PNG" width="640" align="center">
   
   Parametrización LPCC
   
-  <img src="img/lpcccoef.png" width="640" align="center">
+  <img src="img/lpcccoef.png.PNG" width="640" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
   
@@ -91,12 +91,12 @@ La representación del mel-cepstrum és la que muestra la información más comp
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
   
-  <img src="img/gmmlocutor.png">
+  <img src="img/gmmlocutor.png.PNG">
   
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos. Comente el
   resultado obtenido y discuta si el modelado mediante GMM permite diferenciar las señales de uno y otro.
   
-  <img src="img/gmmlocutor2.png">
+  <img src="img/gmmlocutor2.png.PNG">
   
 La imagen corresponde a la GMM obtenida de un locutor distinto de la pregunta anterior. Como podemos ver si comparamos las dos gráficas se diferencian en la probabilidad de decisión. La salida se representa con las direcciones de máxima varianza. Una vez obtenidas las características se hace la parametrización a partir de las fdp gaussianas.
 
@@ -106,21 +106,26 @@ La imagen corresponde a la GMM obtenida de un locutor distinto de la pregunta an
 - Inserte una tabla con la tasa de error obtenida en el reconocimiento de los locutores de la base de datos
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
   
- |                 | LP   | LPCC | MFCC |
+    |                 | LP   | LPCC | MFCC |
   |------------------|:----:|:----:|:----:|
-  | ERROR_RATE      |30,32%|13,7%|15,8%|
+  | ERROR_RATE      |30,32%|13,76%|15.86%|
+    | MISSED       |234/250 |240/250| 227/250 |
+  
  
-
 ### Verificación del locutor.
 
 - Inserte una tabla con el score obtenido con su mejor sistema de verificación del locutor en la tarea
   de verificación de SPEECON. La tabla debe incluir el umbral óptimo, el número de falsas alarmas y de
   pérdidas, y el score obtenido usando la parametrización que mejor resultado le hubiera dado en la tarea
   de reconocimiento.
-    |                 | LP   | LPCC | MFCC |
+  
+   |                 | LP   | LPCC | MFCC |
    |------------------|:----:|:----:|:----:|
-   | COSTDETECT       |93,6% |97,6%| 91,2% |
+   | COSTDETECT       |93,6% |97%| 91.2% |
     | MISSED       |234/250 |244/250| 228/250 |
+
+  
+
  
 ### Test final y trabajo de ampliación.
 
