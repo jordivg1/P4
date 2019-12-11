@@ -4,6 +4,7 @@
 !.gitignore
 !Makefile
 !img/
+!README.md
 !lists/
 !meson.build
 !p4_speaker.pdf
