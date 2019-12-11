@@ -3,7 +3,6 @@
 
 !.gitignore
 !Makefile
-!README.md
 !img/
 !lists/
 !meson.build
