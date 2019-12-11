@@ -117,11 +117,10 @@ La imagen corresponde a la GMM obtenida de un locutor distinto de la pregunta an
   de verificación de SPEECON. La tabla debe incluir el umbral óptimo, el número de falsas alarmas y de
   pérdidas, y el score obtenido usando la parametrización que mejor resultado le hubiera dado en la tarea
   de reconocimiento.
-  |                 | LP   | LPCC | MFCC |
+    |                 | LP   | LPCC | MFCC |
    |------------------|:----:|:----:|:----:|
-   | COSTDETECT       |93,6% |97,6%| 91.2% |
+   | COSTDETECT       |93,6% |97,6%| 91,2% |
     | MISSED       |234/250 |244/250| 228/250 |
-  
  
 ### Test final y trabajo de ampliación.
 
