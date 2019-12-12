@@ -136,7 +136,7 @@ for cmd in $*; do
        for dir in $db/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
-           gmm_train  -v 1 -T 0.001 -N100 -m 16 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           gmm_train  -i 1 -v 1 -t 0.0001 -n1000 -m 72 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
            echo
        done
    elif [[ $cmd == test ]]; then
@@ -165,7 +165,7 @@ for cmd in $*; do
 
       
 	 # \DONE
-	gmm_train  -v 1 -T 0.01 -N100 -m 16 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
+	gmm_train  -i 1 -v 1 -t 0.001 -n 1000 -m 72 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
 	# gmm_train  -v 1 -t 0.01 -n15 -m 32 -d $w/mcp -e mcp -g $w/gmm/mcp/world.gmm $w/lists_verif/users_and_others.train || exit 1
       # gmm_train -d $w/mfcc -e mfcc -g $w/gmm/mfcc/world.gmm -m 9 -N 20 -T 0.01 -i 0 -n 20 || exit 1
    elif [[ $cmd == verify ]]; then

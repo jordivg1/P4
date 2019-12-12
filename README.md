@@ -30,8 +30,8 @@ ejercicios indicados.
   
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
 
-sox $inputfile -t raw - | $X2X +sf | $FRAME -l 400 -p 80 | $WINDOW -l 400 -L 400 |
-        $LPC -l 400 -m $lpc_order > $base.lp
+sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 |
+        $LPC -l 200 -m $lpc_order > $base.lp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -49,22 +49,22 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
 sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | 
-        $MFCC -l 200 -m $mfcc_order -s 8000 -n $ncoef > $base.mfcc
+        $MFCC -l 200 -m $mfcc_order -s 8 -n $ncoef > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
 
 LPCC:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-EXEC="wav2lpcc 13 10 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+EXEC="wav2lpcc 16 20 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Hemos decidio probando un orden de lpcc de 13 i número de cepstrums 10 consiguiendo un error rate aceptable pero no demasiado bueno. Para el cálculo de los coeficientes MFCC:
+Hemos decidio probando un orden de lpcc de 16 i número de cepstrums 20 consiguiendo un error rate bueno. Para el cálculo de los coeficientes MFCC:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-EXEC="wav2mfcc 13 14 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+EXEC="wav2mfcc 13 16 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-En este caso usamos un orden de mfcc de 13 (el que se usa de forma habitual) y 14 coefs. También con mfcc hemos obtenido un resultado aceptable.
+En este caso usamos un orden de mfcc de 13 (el que se usa de forma habitual) y 16 coefs. También con mfcc hemos obtenido un resultado aceptable.
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
@@ -108,8 +108,8 @@ La imagen corresponde a la GMM obtenida de un locutor distinto de la pregunta an
   
     |                 | LP   | LPCC | MFCC |
   |------------------|:----:|:----:|:----:|
-  | ERROR_RATE      |30,32%|13,76%|15.86%|
-    | MISSED       |234/250 |240/250| 227/250 |
+  | ERROR_RATE      |4,60%|0,76%|1,27%|
+    
   
  
 ### Verificación del locutor.
@@ -121,8 +121,10 @@ La imagen corresponde a la GMM obtenida de un locutor distinto de la pregunta an
   
    |                 | LP   | LPCC | MFCC |
    |------------------|:----:|:----:|:----:|
-   | COSTDETECT       |93,6% |97%| 91.2% |
-    | MISSED       |234/250 |244/250| 228/250 |
+   | COSTDETECT       |84,4% |84,3%| 94,8% |
+    | MISSED       |211/250 |186/250| 237/250 |
+    | FALSE AL      |0/1000 |1/1000| 0/1000 |
+    
 
   
 
