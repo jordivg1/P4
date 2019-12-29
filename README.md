@@ -108,7 +108,7 @@ La imagen corresponde a la GMM obtenida de un locutor distinto de la pregunta an
   
     |                 | LP   | LPCC | MFCC |
   |------------------|:----:|:----:|:----:|
-  | ERROR_RATE      |4,60%|0,76%|1,27%|
+  | ERROR_RATE      |2,32%|0,64%|0,64%|
     
   
  
@@ -121,8 +121,8 @@ La imagen corresponde a la GMM obtenida de un locutor distinto de la pregunta an
   
    |                 | LP   | LPCC | MFCC |
    |------------------|:----:|:----:|:----:|
-   | COSTDETECT       |84,4% |84,3%| 94,8% |
-    | MISSED       |211/250 |186/250| 237/250 |
+   | COSTDETECT       |62,4% |16,7%| 83,2% |
+    | MISSED       |156/250 |17/250| 208/250 |
     | FALSE AL      |0/1000 |1/1000| 0/1000 |
     
 
